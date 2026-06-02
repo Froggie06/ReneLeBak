@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>René le Bak</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">⚡ Niet zeuren, het algoritme heeft gekozen.</p>
+          <h1>René le Bak 🍺</h1>
+          <p class="subtitle">Stilte, paniek of totale ondergang.</p>
+          <p class="intro">Druk op de knop en laat het lot bepalen welk nummer je krijgt. Meestal gebeurt er niks... maar soms ben je volledig de sjaak.</p>
+          <div class="actions">
+            <button class="primary-action" id="startButton" type="button">🎤 Start René le Bak</button>
+            <a class="button secondary" href="#regels">Bekijk de regels</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="fake-cover">
+            <span class="cover-kicker">Party-game-app</span>
+            <span class="cover-title">Play again als je durft.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-section" id="resultSection" aria-live="polite">
+      <div class="result-card theme-stolid" id="resultCard">
+        <div class="result-content">
+          <div class="result-main">
+            <h2 id="resultTitle">Solid Stigma</h2>
+            <div class="pill-row">
+              <span class="pill" id="resultPunishment">Er gebeurt niks</span>
+            </div>
+            <p class="message" id="resultMessage">De sigma spaart je... deze keer.</p>
+            <div class="actions">
+              <button id="playAgainButton" type="button">⚡ Play again</button>
+              <button class="secondary" id="musicButton" type="button">🎶 Play muziek</button>
+            </div>
+          </div>
+
+          <article class="music-card" id="musicCard">
+            <div class="cover" id="trackCover">
+              <img id="coverImage" src="assets/solid-stigma.jpg" alt="Cover van Solid Stigma">
+              <span id="coverText">Solid Stigma</span>
+            </div>
+            <div class="track-title">
+              <div>
+                <h3 id="trackTitle">Solid Stigma</h3>
+                <p id="trackArtist">Solid Stigma</p>
+              </div>
+              <span class="pill" id="trackPunishment">Er gebeurt niks</span>
+            </div>
+            <div class="embed" id="audioEmbed">
+              <audio class="audio-player" id="trackAudio" controls preload="auto" autoplay src="assets/solid-stigma.mp3"></audio>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="statsPanel">
+      <div class="section-head">
+        <div>
+          <h2>Scorebord</h2>
+          <p>Deze sessie houdt bij hoe vaak het lot iedereen heeft geraakt.</p>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat">Solid Stigma<strong id="statStolid">0x</strong></div>
+        <div class="stat">If I Tell You<strong id="statIfITellYou">0x</strong></div>
+        <div class="stat">Hardcore versie<strong id="statHardcore">0x</strong></div>
+        <div class="stat">Totaal gespeeld<strong id="statTotal">0x</strong></div>
+        <button class="reset-button" id="resetStatsButton" type="button">Reset stats</button>
+      </div>
+    </section>
+
+    <section class="panel" id="regels">
+      <div class="section-head">
+        <div>
+          <h2>Spelregels</h2>
+          <p>Je had kans op veiligheid. Toch jammer.</p>
+        </div>
+      </div>
+      <div class="rules-grid">
+        <article class="rule-card theme-stolid">
+          <h3>Solid Stigma</h3>
+          <div class="rule-meta">
+            <span>Straf: Er gebeurt niks</span>
+          </div>
+          <p>Je overleeft deze ronde. Geniet van je korte moment van veiligheid.</p>
+        </article>
+        <article class="rule-card theme-ifITellYou">
+          <h3>If I Tell You</h3>
+          <div class="rule-meta">
+            <span>Straf: 3 slokken</span>
+          </div>
+          <p>René komt binnen. Jij neemt drie slokken. 3 slokken, geen discussie.</p>
+        </article>
+        <article class="rule-card theme-hardcore">
+          <h3>Hardcore versie</h3>
+          <div class="rule-meta">
+            <span>Straf: 1 bak / 1 atje</span>
+          </div>
+          <p>De zeldzame ramp. De tafel kijkt toe. Jij weet wat je moet doen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h2>Spelmodus</h2>
+          <p>Kies hoe hard het algoritme vandaag mag toeslaan.</p>
+        </div>
+      </div>
+      <div class="modes-grid">
+        <button class="mode-card is-active" type="button" data-mode="classic">
+          <h3>Classic</h3>
+          <p>Zoals het nu is: de basisverdeling met een beetje variatie per ronde.</p>
+        </button>
+        <button class="mode-card" type="button" data-mode="custom">
+          <h3>Custom</h3>
+          <p>Pas zelf de percentages aan voor alle drie de liedjes.</p>
+        </button>
+        <button class="mode-card" type="button" data-mode="extreme">
+          <h3>Extreme</h3>
+          <p>If I Tell You en de hardcore versie krijgen dubbel zoveel gewicht.</p>
+        </button>
+      </div>
+      <div class="custom-panel" id="customPanel">
+        <div class="custom-grid">
+          <label class="custom-field">
+            Solid Stigma
+            <input id="customStolid" type="number" min="0" max="100" step="1" value="75">
+          </label>
+          <label class="custom-field">
+            If I Tell You
+            <input id="customIfITellYou" type="number" min="0" max="100" step="1" value="20">
+          </label>
+          <label class="custom-field">
+            Hardcore versie
+            <input id="customHardcore" type="number" min="0" max="100" step="1" value="5">
+          </label>
+        </div>
+        <p class="small-note">De waardes worden als gewichten gebruikt. Het totaal hoeft niet perfect 100 te zijn.</p>
+      </div>
+      <p class="mode-status" id="modeStatus">Actieve modus: Classic</p>
+    </section>
+
+    <footer>
+      Drink met mate. Alleen voor 18+. Speel verantwoordelijk. Deze website is een fanproject en is niet officieel verbonden aan René le Blanc, zijn management of YouTube.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
